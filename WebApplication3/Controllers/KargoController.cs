@@ -18,7 +18,7 @@ namespace WebApplication3.Controllers
         [Authorize(Roles = "Yönetici,Başkan")]
         public ActionResult Creat()
         {
-            //dfgdfgdfgdg
+            
             var kargocuList = db.Kargocu.ToList();
             ViewData["Kargocu"] = kargocuList;
             
@@ -35,6 +35,7 @@ namespace WebApplication3.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(int KargocuId, int UrunId, int DurumID)
         {
+            //asdasd
             Models.Kargo _kargo = new Models.Kargo();
             _kargo.SonIslemTarihi = DateTime.Now;
             _kargo.KargocuId =KargocuId ;
