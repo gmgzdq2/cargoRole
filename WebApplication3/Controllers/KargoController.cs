@@ -18,7 +18,6 @@ namespace WebApplication3.Controllers
         [Authorize(Roles = "Yönetici,Başkan")]
         public ActionResult Creat()
         {
-          //sdkljfbskjdfbskjdfbsşdlkfnlksdfnl
             var kargocuList = db.Kargocu.ToList();
             ViewData["Kargocu"] = kargocuList;
             
