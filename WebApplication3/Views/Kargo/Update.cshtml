@@ -1,0 +1,32 @@
+﻿@model WebApplication3.Models.Kargo
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var kargocuList = ViewData["Kargocu"] as List<WebApplication3.Models.Kargocu>;
+    var urunList = ViewData["Urun"] as List<WebApplication3.Models.Urun>;
+    var durumList = ViewData["durum"] as List<WebApplication3.Models.Durum>;
+}
+<h2>Yeni Kargo</h2>
+@using (Html.BeginForm("Update", "Kargo", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        <label for="Id">Id</label>
+        <input class="form-control" value="@Model.Id" name="Id" id="id" readonly />
+        @*@Html.TextBox("Id", new { @class = "form-control", @readonly = "@readonly" ,@value = Model.Id})*@
+    </div>
+    <div class="form-group">
+        <label for="Kargocu">Kargocu</label>
+        @Html.DropDownList("kargocuId", new SelectList(kargocuList.ToList(), "Id", "Ad"), "Kargocu Seçiniz", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="Urun">Ürün</label>
+        @Html.DropDownList("urunId", new SelectList(urunList.ToList(), "Id", "Ad"), "Ürününüzü Seçiniz", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="Durum">Durum</label>
+        @Html.DropDownList("durumId", new SelectList(durumList.ToList(), "Id", "Ad"), "Durum Seçiniz", new { @class = "form-control" })
+    </div>
+
+    <button type="submit" class="btn btn-primary">Düzenle</button>
+}

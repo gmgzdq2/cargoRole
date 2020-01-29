@@ -1,0 +1,36 @@
+﻿@model IEnumerable<WebApplication3.Models.Durum>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">DurumId</th>
+                <th scope="col">DurumAd</th>
+                <th>
+                    <a href="@Url.Action("Creat","Durum")" class="btn btn-primary">Yeni</a>
+                    @* <button type="button" class="btn btn-primary">Yeni</button>*@
+                </th>
+            </tr>
+        
+        </thead>
+        <tbody>
+            @foreach (var item in Model.ToList())
+            {
+                <tr>
+                    <th scope="row">@item.Id</th>
+                    <td>@item.Ad</td>
+                    <td>
+                        <a href="@Url.Action("Update","Durum",new { @Id = item.Id})" class="btn btn-danger">Düzenle</a>
+                   
+                        <a href="@Url.Action("Delete","Durum",new { @Id = item.Id})" class="btn btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+
+

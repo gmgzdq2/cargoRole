@@ -1,0 +1,42 @@
+﻿@model IEnumerable<WebApplication3.Models.Kargo>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">SonIslemTarihi</th>
+            <th scope="col">KargocuId</th>
+            <th scope="col">UrunId</th>
+            <th scope="col">DurumId</th>
+            <th>
+                <a href="@Url.Action("Creat","Kargo")" class="btn btn-primary">Yeni</a>
+                @* <button type="button" class="btn btn-primary">Yeni</button>*@
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.ToList())
+        {
+        <tr>
+            <th scope="row">@item.Id</th>
+            <td>@item.SonIslemTarihi</td>
+            <td>@item.Kargocu.Ad</td>
+            <td>@item.Urun.Ad</td>
+            <td>@item.Durum.Ad</td>
+
+            <td>
+                <a href="@Url.Action("Update","Kargo",new { @Id = item.Id})" class="btn btn-danger">Düzenle</a>
+                <a href="@Url.Action("Delete","Kargo",new { @Id = item.Id})" class="btn btn-danger">Sil</a>
+            </td>
+
+        </tr>
+        }
+    </tbody>
+</table>
+

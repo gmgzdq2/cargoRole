@@ -1,0 +1,21 @@
+﻿@model WebApplication3.Models.Durum
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Durum</h2>
+
+@using (Html.BeginForm("Update", "Durum", FormMethod.Post))
+{
+
+<div class="form-group">
+    <label for="Id">Id</label>
+    <input name="Id" value="@Model.Id" class="form-control" readonly />
+</div>
+    <div class="form-group">
+        <label for="Ad">Durum Ad</label>
+        <input name="Ad" value="@Model.Ad" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Düzenle</button>
+}

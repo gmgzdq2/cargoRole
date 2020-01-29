@@ -1,0 +1,16 @@
+﻿@model WebApplication3.Models.Durum
+@{
+    ViewBag.Title = "Creat";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Durum</h2>
+
+@using (Html.BeginForm("Creat", "Durum", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="Ad">Durum Ad</label>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Ekle</button>
+}

@@ -1,0 +1,34 @@
+﻿@model WebApplication3.Models.Kargocu
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Kargocu</h2>
+
+@using (Html.BeginForm("Update", "Kargocu", FormMethod.Post))
+{
+
+    <div class="form-group">
+        <label for="exampleInputEmail1">Id</label>
+        @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "@readonly" })
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Kargocu Ad</label>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Kargocu Soyad</label>
+        @Html.TextBoxFor(x => x.Soyad, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Kargocu Tc NO</label>
+        @Html.TextBoxFor(x => x.TcNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Kargocu Telefon</label>
+        @Html.TextBoxFor(x => x.TelNo, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Düzenle</button>
+}
+

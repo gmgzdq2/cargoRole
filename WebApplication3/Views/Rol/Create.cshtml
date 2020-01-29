@@ -1,0 +1,16 @@
+﻿@model WebApplication3.Models.Rol
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Yeni Rol</h2>
+
+@using (Html.BeginForm("Create", "Rol", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="Ad">Rolün Ad</label>
+        @Html.TextBoxFor(x => x.Ad, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-primary">Ekle</button>
+}
